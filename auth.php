@@ -25,7 +25,7 @@ function forma_poluch_auth() {echo <<<_HTML_
 </form>
 _HTML_;};
 
-//функция выявления ошибок написания логина(перенести в js)
+//функция выявления ошибок написания логина(разнести на php и js)
 function osh_napis_login_polz(){
 /*    echo  "Vyp f-iya: " . __FUNCTION__ . "<br>";////////для отладки/////////*/
     $pretenzii_k_login = array();
@@ -55,10 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                               $_POST['znach_iz_f_login_polz']);
             $zapr = $soedbd->query 
             ("SELECT * FROM `users` WHERE login='$login_ekr'");
+            $nepr_log_par = '<p><b>Неправильный ЛОГИН/ПАРОЛЬ</b></p>';
             if (($zapr->num_rows) !== 1){
                 $zapr->free();
                 $soedbd->close();
-                $nepr_log_par = '<p><b>Неправильный ЛОГИН/ПАРОЛЬ</b></p>';
                 echo $nepr_log_par;
             }
             else {
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $_SESSION['auth'] = true;
                     $_SESSION['firstname'] = $arr_iz_zapr['firstname'];
                     echo '<meta http-equiv="refresh"content="0;
-                    URL=/sklyar53.php?'.$_SERVER['QUERY_STRING'].'">';
+                    URL=/shop/index.php">';
                 }
             }
         }
