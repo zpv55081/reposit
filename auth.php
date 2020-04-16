@@ -30,7 +30,7 @@ function osh_napis_login_polz(){
 /*    echo  "Vyp f-iya: " . __FUNCTION__ . "<br>";////////для отладки/////////*/
     $pretenzii_k_login = array();
     //ниже преобразование введенных символов в сущности и контроль длины логина
-    if (strlen(htmlentities($_POST['znach_iz_f_login_polz']))<5) {
+    if (strlen(htmlentities($_POST['znach_iz_f_login_polz']))<4) {
         $pretenzii_k_login[] = "<b>логин должен быть подлиннее</b>";
         }/*здесь место для дополнительных проверок корректности ввода логина*/
     if ($pretenzii_k_login){
