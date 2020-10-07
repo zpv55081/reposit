@@ -21,7 +21,7 @@ function forma_poluch_auth() {echo <<<_HTML_
 <form action='$_SERVER[PHP_SELF]' method='POST'>
 ЛОГИН: <input type='text' name='znach_iz_f_login_polz'>
 ПАРОЛЬ: <input type='password' name='znach_iz_f_parol_polz'>
-<input type='submit' value='Вход'>
+<input type='submit' value='ВХОД'>
 </form>
 _HTML_;};
 

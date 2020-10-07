@@ -11,7 +11,7 @@ echo <<<_nachTegi
 <title> Магазин </title>
 </head>
 <body>
-_nachTegi;//символ "И" - для правильного определения кодировки Эдитрой,   
+_nachTegi;//символ для "эдИтра"   
 
 if(isset($_SESSION['auth'])){
     echo '<p>Здравствуйте, '.$_SESSION['firstname'].'!
@@ -24,7 +24,7 @@ else {
     include_once "auth.php";
 }
 echo '<hr>';
-echo '<b> ЭТО НАШ МАГАЗИН</b>';///// это место для основной информации
+echo '<b> ЭТО НАШ МАГАЗИН</b>';///// здесь место для основной информации
 echo '<br><br>';
 echo '<a href="http://127.0.0.1/catalog73.php"> Каталог с БД АКБ </a>';
 ?>
