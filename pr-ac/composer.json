@@ -1,0 +1,31 @@
+{
+    "name": "aaa/bbb",
+    "description": "Ba",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Academy\\": "objects/Academy",
+            "Profile\\": "objects/Profile",
+            "objects\\": "objects"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pavel Zajcev",
+            "email": "p.zajcev@k-t.org"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "5.4.45"
+        },
+        "allow-plugins": {
+            "kylekatarnls/update-helper": false
+        }
+    },
+    "require": {
+        "illuminate/database": "^5.4",
+        "illuminate/events": "^5.4"
+    }
+}
