@@ -31,3 +31,17 @@ Route::get('/academy/choose_competencies/profiles_filters_display', 'ChooseCompe
 Route::get('/academy/choose_competencies/profiles_filters_submit', 'ChooseCompetenciesController@profilesFiltersSubmit');
 
 Route::get('/academy/assign_competencies', 'ChooseCompetenciesController@assignCompetencies');
+
+Route::get('/working_time/index_days', 'WorkingTimeController@index_days');
+
+Route::get('/working_time/get_groups_dates', 'WorkingTimeController@getGroupsDates');
+
+Route::get('/working_time/index_hours', 'WorkingTimeController@index_hours');
+
+Route::get('/working_time/show', 'WorkingTimeController@show');
+
+Route::get('/working_time/edit', 'WorkingTimeController@edit');
+
+Route::match(['get', 'post'], '/working_time/update', 'WorkingTimeController@update');
+
+Route::match(['get', 'post'], '/working_time/delete', 'WorkingTimeController@delete');
