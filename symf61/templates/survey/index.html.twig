@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+    <form action="survey/interviewed" method="post">
+        </p><b>{{questions[1]}}</b>
+        <br>
+        {% for variant in variants_for_1 %}
+        <input type="radio" name="q1_variant" id="v{{variant.getId}}" class="q1" value="{{variant.getId}}" required>
+        {{variant.getText}}<br>
+        {% endfor %}
+        <div style="display:none;" id="q2">
+            <br>
+                <b>{{questions[2]}}</b>
+            <br>
+            <select name="q2_variant[]" id="q2_sel" title="Выберите один или несколько вариантов" multiple>
+                {% for variant in variants_for_2 %}
+                <option value="{{variant.getId}}">{{variant.getText}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Ответить">
+    </form>
+    <script>
+        var inp = document.getElementsByClassName('q1');
+        var q2 = document.getElementById('q2');
+        var q2_sel = document.getElementById('q2_sel');
+
+        function func(elm) {
+            if (elm.id == "v2" && elm.checked) {
+                q2.style.display = "block";
+                q2_sel.required = true;
+            }
+            else
+                q2.style.display = "none";
+        }
+
+        for (var i = 0; i < inp.length; i++) {
+            inp[i].onchange = function() {
+                func(this)
+            };
+        }
+    </script>
+</body>
+</html>

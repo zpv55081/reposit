@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      TABLE {
+        border-collapse: collapse;
+      }
+      TH,
+      TD {
+        text-align: center;
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h4>{{headline}}</h4>
+    <p>Cводный отчёт по результатам:</p>
+    <table>
+      <tr>
+        <th>Вопрос</th>
+        <th>Ответы</th>
+        <th>Кол-во ответов</th>
+        <th>Доля</th>
+      </tr>
+      {% for question, variant_array in report_array %}
+      {% set question_total_replies = 0 %}
+      {% for value in variant_array %}
+      {% set question_total_replies = question_total_replies + value %}
+      {% endfor %}
+      <tr>
+        <td rowspan="{{ variant_array|length }}">{{ question }}</td>
+        {% for variant, amount in variant_array %}
+        <td>{{ variant }}</td>
+        <td>{{ amount }}</td>
+        <td>
+          {% if question_total_replies is not same as(0) %}
+          {{(amount * 100 / question_total_replies)|round}}%
+          {% endif %}
+        </td>
+      </tr>
+      <tr>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
